@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-type MenuSection = 'tapas' | 'entree' | 'plat' | 'dessert';
+type MenuSection = 'tapas' | 'entree' | 'plat' | 'dessert' | 'boisson';
 
 type MenuItem = {
   name: string;
@@ -18,6 +18,7 @@ const MenusPage = () => {
     entree: [],
     plat: [],
     dessert: [],
+    boisson: [],
   });
   const [currentMenu, setCurrentMenu] = useState<MenuSection>("tapas");
 
@@ -42,6 +43,7 @@ const MenusPage = () => {
             entree: [],
             plat: [],
             dessert: [],
+            boisson: [],
           };
           items.forEach((item: { section: MenuSection; name: string; price: string; description: string }) => {
             if (grouped[item.section]) {

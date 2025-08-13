@@ -7,6 +7,7 @@ import MenusPage from "./Pages/MenuPage";
 import './index.css'; // Assuming you have a global CSS file for styles
 
 import { Clock, MapPin, Phone, Mail, Star, ChefHat } from 'lucide-react';
+import MenuJourPage from "./Pages/MenuJourPage";
 
 
 // Main App Component
@@ -25,6 +26,8 @@ const OleRestaurant = () => {
         return <GaleriePage />;
       case 'contact':
         return <ContactPage />;
+      case 'menuJour':
+        return <MenuJourPage />;
       default:
         return <AccueilPage setCurrentPage={setCurrentPage} />;
     }
@@ -99,9 +102,17 @@ const OleRestaurant = () => {
         >
           Contact
         </button>
-          </div>
-        </div>
-      </nav>
+        <button
+          onClick={() => setCurrentPage('menuJour')}
+          className={`hover:text-amber-600 transition-colors text-base md:text-lg font-light tracking-wide ${
+            currentPage === 'menuJour' ? 'text-amber-600' : ''
+          }`}
+        >
+          Menu du Jour
+        </button>
+      </div>
+    </div>
+  </nav>
 
       {/* Main Content */}
       <main>
