@@ -36,15 +36,15 @@ const OleRestaurant = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-gray-900 shadow-md sticky top-0 z-50">
+      <header className="bg-gray-800 shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               {/**Logo of the ole */}
-              <img className="rounded-full w-12 h-12" src="./src/assets/logoOle.png" alt="Olé Restaurant" />
+              <img className="rounded-full w-12 h-12" src="./src/assets/logoOle.jpg" alt="Olé Restaurant" />
               <h1 className="text-3xl font-bold text-green-900">Olé Restaurant</h1>
             </div>
-            <div className="hidden md:flex items-center space-x-6 text-stone-600">
+            <div className="hidden md:flex items-center space-x-6 text-stone-200">
               <div className="flex items-center space-x-2">
                 <Clock className="h-4 w-4" />
                 <span className="text-sm">10h00 - 22h00</span>
