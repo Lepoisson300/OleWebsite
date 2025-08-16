@@ -41,7 +41,7 @@ const OleRestaurant = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               {/**Logo of the ole */}
-              <img className="rounded-full w-12 h-12" src="./src/assets/logoOle.jpg" alt="Olé Restaurant" />
+              <img className="rounded-full w-12 h-12" src="https://fv5-4.files.fm/thumb_show.php?i=w724qnjdkd&view&v=1&PHPSESSID=1fcd68afce9ab761478abb071e98a0417dc1fc1c" alt="Olé Restaurant" />
               <h1 className="text-3xl font-bold text-green-900">Olé Restaurant</h1>
             </div>
             <div className="hidden md:flex items-center space-x-6 text-stone-200">
