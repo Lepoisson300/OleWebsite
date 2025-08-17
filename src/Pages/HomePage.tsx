@@ -4,22 +4,26 @@ import {Star, Utensils, Wine, Users} from 'lucide-react';
 // Accueil Page Component
 interface AccueilPageProps {
   setCurrentPage: (page: string) => void;
+  listesHoraires: { jours: string; ouverture: string; fermeture: string }[];
 }
 
-const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage }) => (
+const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraires }) => (
   <>
     {/* Hero Section */}
     <section className="bg-gradient-to-r from-stone-800 via-amber-900 to-stone-700 text-stone-100 py-20 relative overflow-hidden">
       {/* Background Image */}
+      <link rel="preconnect" href="https://fonts.googleapis.com"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
       <img
-        src='https://cdn.passeports.world/pictures/square/pictures/6363/802db/6363802db7bcf/pg23-60038-ole-1a-compressed.jpg?c=1667465261'
+        src='https://fv5-3.files.fm/thumb_show.php?i=xvgtuwaujq&view&v=1&PHPSESSID=bc916e25d700867e7bc722fa13f68b0f5ab945c2'
 className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-70"
         style={{ pointerEvents: 'none' }}
       />
       <div className="absolute inset-0  bg-opacity-30 z-10"></div>
     <div className="container mx-auto px-4 text-center relative z-20">
       
-      <h2 className="text-5xl font-bold mb-6 text-green-900 relative z-10">¡Bienvenidos a Olé!</h2>
+      <h2 className="text-6xl font-bold mb-6 text-amber-50 relative z-10 font-['Dancing_Script']">¡Bienvenidos a O'lé!</h2>
       <p className="text-xl mb-8 max-w-2xl mx-auto text-stone-200 relative z-10">
         Situé au bord du lac de Bienne, sur la plus belle plage de la région, 
         ce restaurant lounge propose une carte de mets inspirés des voyages du chef de cuisine, tout en utilisant des produits locaux. 
@@ -107,12 +111,12 @@ className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl font-bold mb-6 text-green-900">A propos de Olé Restaurant</h2>
+            <h2 className="text-4xl font-bold mb-6 text-amber-50 font-['Dancing_Script']">A propos de O'lé Restaurant</h2>
             <p className="text-stone-300 mb-4">
               Des plats généreux, gourmands, à l'accent méditerranéen présentés de manière fine et délicate. 
               Un endroit convivial, cosy et accueillant où nos clients pourront apprécier un cocktail sur notre superbe terrasse ou déguster une sélection de nos tapas dans notre intérieur entièrement rénové. Des vins de la région, une carte de cocktails, de shots, 
               et de coupes de glace gargantuesques.... Tout pour satisfaire toutes les envies.
-              Le Restaurant O'Lé, un endroit où il fait bon se laisser vivre...
+              Le Restaurant O'lé, un endroit où il fait bon se laisser vivre...
             </p>
             
             <div className="flex items-center space-x-4">
@@ -124,23 +128,19 @@ className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity
               <span className="text-stone-600 ml-2">4.5/5 de 500+ commentaires</span>
             </div>
           </div>
-          <div className="bg-gradient-to-br from-amber-800 to-stone-700 rounded-lg p-8 text-white">
+            <div className="bg-gradient-to-br from-amber-800 to-stone-700 rounded-lg p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Horaires</h3>
             <div className="space-y-2">
-              <div className="flex justify-between">
-                <span>Lundi - Mercredi</span>
-                <span>10h00 - 22h00</span>
+              {listesHoraires.map(({ jours, ouverture, fermeture }) => (
+              <div className="flex justify-between" key={jours}>
+                <span>{jours}</span>
+                <span>
+                {ouverture} - {fermeture}
+                </span>
               </div>
-              <div className="flex justify-between">
-                <span>Mercredi - Samedi</span>
-                <span>9h00 - 00h00</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Dimanche</span>
-                <span>10h00 - 17h00</span>
-              </div>
+              ))}
             </div>
-          </div>
+            </div>
         </div>
       </div>
     </section>

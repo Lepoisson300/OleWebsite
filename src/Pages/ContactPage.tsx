@@ -2,7 +2,7 @@ import { Clock, MapPin, Phone, Mail} from 'lucide-react';
 
 
 // Contact Page Component
-const ContactPage = () => (
+const ContactPage = ({ listesHoraires }) => (
   <section className="py-16 bg-neutral-900 min-h-screen">
     <div className="container mx-auto px-4">
       <div className="text-center mb-12">
@@ -22,34 +22,41 @@ const ContactPage = () => (
                 <MapPin className="h-6 w-6 text-amber-500 mt-1" />
                 <div>
                   <h4 className="font-semibold text-stone-100">Adresse</h4>
-                  <p className="text-stone-600">Chemin de saint joux 22<br />2520 La Neuveville, Suisse </p>
+                  <p className="text-stone-300">Chemin de saint joux 22<br />2520 La Neuveville, Suisse </p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <Phone className="h-6 w-6 text-amber-500 mt-1" />
                 <div>
                   <h4 className="font-semibold text-stone-100">Téléphone</h4>
-                  <p className="text-stone-600">+41 32 751 66 55</p>
+                  <p className="text-stone-300">+41 32 751 66 55</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <Mail className="h-6 w-6 text-amber-500 mt-1" />
                 <div>
                   <h4 className="font-semibold text-stone-100">Email</h4>
-                  <p className="text-stone-600">info@restaurantole.com</p>
+                  <p className="text-stone-300">info@restaurantole.com</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
+                <div className="flex items-start space-x-4">
                 <Clock className="h-6 w-6 text-amber-500 mt-1" />
                 <div>
                   <h4 className="font-semibold text-stone-100">Horaires</h4>
-                  <div className="text-stone-600 space-y-1">
-                    <p>Lundi - Mercredi: 10h00 - 22h00</p>
-                    <p>Mercredi - Samedi: 10h00 - 00h00</p>
-                    <p>Dimanche: 10h00 - 17h00</p>
+                  <div className="text-stone-300 space-y-1">
+                  {listesHoraires && listesHoraires.length > 0 ? (
+                    listesHoraires.map((horaire, idx) => (
+                      console.log("Horaire:", horaire),
+                    <p key={idx}>
+                      {horaire.jours}: {horaire.ouverture} - {horaire.fermeture}
+                    </p>
+                    ))
+                  ) : (
+                    <p>Horaires non disponibles</p>
+                  )}
                   </div>
                 </div>
-              </div>
+                </div>
             </div>
           </div>
         </div>

@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ActualitesPage from "./Pages/ActualitePage";
 import ContactPage from "./Pages/ContactPage";
 import GaleriePage from "./Pages/GaleriePage";
 import AccueilPage from "./Pages/HomePage";
 import MenusPage from "./Pages/MenuPage";
 import './index.css'; // Assuming you have a global CSS file for styles
+import type { Horaire } from './types/horaires';
 
-import { Clock, MapPin, Phone, Mail, Star, ChefHat } from 'lucide-react';
+import { Clock, MapPin, Phone, Mail, Star } from 'lucide-react';
 import MenuJourPage from "./Pages/MenuJourPage";
 
 
@@ -14,35 +15,78 @@ import MenuJourPage from "./Pages/MenuJourPage";
 const OleRestaurant = () => {
   const [currentPage, setCurrentPage] = useState('accueil');
 
+  const [listesHoraires, setListesHoraires] = useState<Horaire[]>([]);
+
+  const SHEET_ID = import.meta.env.VITE_GOOGLE_SHEET_ID as string;
+  const API_KEY = import.meta.env.VITE_API_KEY as string;
+  const RANGE_HORAIRES = import.meta.env.VITE_RANGE_HORAIRES as string;
+
+  useEffect(() => {
+    console.log("Fetching data from:", `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE_HORAIRES}?key=${API_KEY}`);
+
+    fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE_HORAIRES}?key=${API_KEY}`
+    )
+      .then((res) => {
+        console.log("Response status:", res.status);
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Raw API data:", data);
+        if (data.values && data.values.length > 1) {
+          // Skip the header row (index 0) and map the rest
+          const horaires: Horaire[] = data.values.slice(1).map((row: string[]) => ({
+            jours: row[0] || '',
+            ouverture: row[1] || '',
+            fermeture: row[2] || '',
+          }));
+          console.log("Mapped horaires:", horaires);
+          setListesHoraires(horaires);
+        } else {
+          console.log("No data found or insufficient rows");
+        }
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+  }, [SHEET_ID, API_KEY, RANGE_HORAIRES]);
+
+  useEffect(() => {
+    console.log("listesHoraires updated:", listesHoraires);
+  }, [listesHoraires]);
+
   const renderPage = () => {
     switch(currentPage) {
       case 'accueil':
-        return <AccueilPage setCurrentPage={setCurrentPage} />;
+        return <AccueilPage setCurrentPage={setCurrentPage} listesHoraires={listesHoraires}/>;
       case 'menus':
-        return <MenusPage />;
+        return <MenusPage  />;
       case 'actualites':
         return <ActualitesPage />;
       case 'galerie':
         return <GaleriePage />;
       case 'contact':
-        return <ContactPage />;
+        return <ContactPage listesHoraires={listesHoraires} />;
       case 'menuJour':
         return <MenuJourPage />;
       default:
-        return <AccueilPage setCurrentPage={setCurrentPage} />;
+        return <AccueilPage setCurrentPage={setCurrentPage}  listesHoraires={listesHoraires}/>;
     }
   };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-gray-800 shadow-md sticky top-0 z-50">
+      <link rel="preconnect" href="https://fonts.googleapis.com"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
+      
+      <header className="bg-gray-950 shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               {/**Logo of the ole */}
               <img className="rounded-full w-12 h-12" src="https://fv5-4.files.fm/thumb_show.php?i=w724qnjdkd&view&v=1&PHPSESSID=1fcd68afce9ab761478abb071e98a0417dc1fc1c" alt="Olé Restaurant" />
-              <h1 className="text-3xl font-bold text-green-900">Olé Restaurant</h1>
+                <h1 className="text-3xl font-bold text-amber-50 font-['Dancing_Script']">O'lé Restaurant Lounge</h1>
             </div>
             <div className="hidden md:flex items-center space-x-6 text-stone-200">
               <div className="flex items-center space-x-2">
@@ -163,18 +207,18 @@ const OleRestaurant = () => {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Horaires</h4>
               <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span>Lundi - mercredi</span>
-                  <span>10h00 - 22h00</span>
+              {listesHoraires.length > 0 ? (
+                listesHoraires.map((horaire, idx) => (
+                <div className="flex justify-between" key={idx}>
+                  <span>{horaire.jours}</span>
+                  <span>
+                  {horaire.ouverture} - {horaire.fermeture}
+                  </span> 
                 </div>
-                <div className="flex justify-between">
-                  <span>Mercredi - Sam</span>
-                  <span>10h00 - 00h00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Dimanche</span>
-                  <span>10h00 - 17h00</span>
-                </div>
+                ))
+              ) : (
+                <div>Chargement...</div>
+              )}
               </div>
             </div>
 
@@ -212,6 +256,12 @@ const OleRestaurant = () => {
                 >
                   Réservation
                 </button>
+                <button 
+                  onClick={() => setCurrentPage('menuJour')}
+                  className="block text-sm hover:text-amber-600 transition-colors"
+                >
+                  Menu du Jour
+                </button>
               </div>
             </div>
           </div>
@@ -219,7 +269,7 @@ const OleRestaurant = () => {
           {/* Bottom Footer */}
           <div className="border-t border-stone-700 mt-8 pt-8 text-center">
             <p className="text-stone-400 text-sm">
-              © 2025 Olé Restaurant. Tous droits réservés. | 
+              © 2025 O'lé Restaurant. Tous droits réservés. | 
               <span className="mx-2">•</span>
               Mentions légales | 
               <span className="mx-2">•</span>
