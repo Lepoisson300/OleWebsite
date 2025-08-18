@@ -1,8 +1,11 @@
 import { Clock, MapPin, Phone, Mail} from 'lucide-react';
-
+import type { Horaire } from '../types/horaires';
+interface ContactPageProps {
+  listesHoraires: Horaire[];
+}
 
 // Contact Page Component
-const ContactPage = ({ listesHoraires }) => (
+const ContactPage = ({ listesHoraires }: ContactPageProps) => (
   <section className="py-16 bg-neutral-900 min-h-screen">
     <div className="container mx-auto px-4">
       <div className="text-center mb-12">
