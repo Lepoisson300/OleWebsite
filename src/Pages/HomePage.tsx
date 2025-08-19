@@ -16,8 +16,8 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
       <img
-        src='https://fv5-3.files.fm/thumb_show.php?i=xvgtuwaujq&view&v=1&PHPSESSID=bc916e25d700867e7bc722fa13f68b0f5ab945c2'
-className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-70"
+        src='./src/assets/olebanniere.png'
+className="absolute inset-0 w-full h-full object-cover object-center z-0"
         style={{ pointerEvents: 'none' }}
       />
       <div className="absolute inset-0  bg-opacity-30 z-10"></div>

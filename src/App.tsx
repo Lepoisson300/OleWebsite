@@ -44,6 +44,7 @@ const OleRestaurant = () => {
           setListesHoraires(horaires);
         } else {
           console.log("No data found or insufficient rows");
+          console.log("Data values:", data.values);
         }
       })
       .catch((error) => {
