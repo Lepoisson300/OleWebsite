@@ -16,7 +16,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
       <img
-        src='./src/assets/olebanniere.png'
+        src='https://i.imghippo.com/files/XevN6951LBU.png'
 className="absolute inset-0 w-full h-full object-cover object-center z-0"
         style={{ pointerEvents: 'none' }}
       />
