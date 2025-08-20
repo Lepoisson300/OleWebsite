@@ -10,43 +10,55 @@ interface AccueilPageProps {
 const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraires }) => (
   <>
     {/* Hero Section */}
-    <section className="bg-gradient-to-r from-stone-800 via-amber-900 to-stone-700 text-stone-100 py-20 relative overflow-hidden">
-      {/* Background Image */}
+    <section className="bg-gray-900 text-stone-100 md:py-24 flex items-center">
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
       <img
-        src='https://i.imghippo.com/files/XevN6951LBU.png'
-className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        src='https://i.imghippo.com/files/pe2725AOo.png'
+        className="absolute inset-0 w-full h-[90%] object-cover object-center z-0"
         style={{ pointerEvents: 'none' }}
+        alt=""
       />
-      <div className="absolute inset-0  bg-opacity-30 z-10"></div>
-    <div className="container mx-auto px-4 text-center relative z-20">
-      
-      <h2 className="text-6xl font-bold mb-6 text-amber-50 relative z-10 font-['Dancing_Script']">¡Bienvenidos a O'lé!</h2>
-      <p className="text-xl mb-8 max-w-2xl mx-auto text-stone-200 relative z-10">
-        Situé au bord du lac de Bienne, sur la plus belle plage de la région, 
-        ce restaurant lounge propose une carte de mets inspirés des voyages du chef de cuisine, tout en utilisant des produits locaux. 
-      </p>
-      <div className="flex justify-center space-x-4 relative z-10">
-        <button 
-        onClick={() => setCurrentPage('menus')}
-        className="bg-amber-800 text-stone-100 px-8 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
-        >
-        Voir le Menu
-        </button>
-        <button 
-        onClick={() => setCurrentPage('contact')}
-        className="border-2 border-stone-300 text-stone-100 px-8 py-3 rounded-lg font-semibold hover:bg-stone-100 hover:text-stone-800 transition-colors"
-        >
-        Réserver une Table
-        </button>
+      <div className="absolute inset-0 bg-opacity-50"></div>
+      <div className="container mx-auto px-4 text-center relative z-20 w-full flex flex-col items-center justify-center h-full">
+        {/* Logo/Circle Design */}
+        
+            {/* Main title inside circle */}
+            <h2 className="text-6xl md:text-7xl font-bold text-amber-50 relative z-10 font-['Dancing_Script'] text-center leading-tight">
+              ¡Bienvenidos a O'lé!
+            </h2>
+        
+        
+        {/* Text and buttons below logo */}
+        <div className="max-w-4xl mt-[200px] mx-auto p-2 rounded-lg">
+            <div className=' rounded-lg p-4'>
+            <p className="text-lg md:text-xl max-w-3xl mx-auto text-stone-100 relative z-10 leading-relaxed">
+              Situé au bord du lac de Bienne, sur la plus belle plage de la région, 
+              ce restaurant lounge propose une carte de mets inspirés des voyages du chef de cuisine, tout en utilisant des produits locaux. 
+            </p>
+            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={() => setCurrentPage('menus')}
+              className="bg-amber-800 text-stone-100 px-8 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
+              >
+              Voir le Menu
+            </button>
+            <button 
+              onClick={() => setCurrentPage('contact')}
+              className="border-2 border-stone-300 text-stone-100 px-8 py-3 rounded-lg font-semibold hover:bg-stone-100 hover:text-stone-800 transition-colors"
+              >
+              Réserver une Table
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
     </section>
 
     {/* Features */}
     <section className="py-16 bg-gray-950">
+      
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="group cursor-pointer">
