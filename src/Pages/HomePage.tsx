@@ -24,7 +24,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
         {/* Logo/Circle Design */}
         
             {/* Main title inside circle */}
-            <h2 className="mb-4 text-6xl md:text-5xl font-bold text-amber-50 font-['Dancing_Script'] text-center leading-tight absolute bottom-77">
+            <h2 className="mb-4 text-4xl sm:text-5xl md:text-6xl font-bold text-stone-300 font-['Dancing_Script'] text-center leading-tight absolute bottom-73">
               ¡Bienvenidos a O'lé!
             </h2>
         
@@ -32,7 +32,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
         {/* Text and buttons below logo */}
         <div className="max-w-4xl mt-[220px] mx-auto p-2 rounded-lg">
             <div className=' rounded-lg p-4'>
-            <p className="text-xl md:text-3xl font-['Dancing_Script'] max-w-4xl mx-auto text-stone-300 text-center absolute top-65 right-[10%] left-[10%] font-bold">
+            <p className="text-xl md:text-3xl font-['Dancing_Script'] max-w-4xl mx-auto text-stone-300 text-center absolute top-58 right-[7%] left-[7%] font-bold">
               Situé au bord du lac de Bienne, sur la plus belle plage de la région, 
               ce restaurant lounge propose une carte de mets inspirés des voyages du chef de cuisine, tout en utilisant des produits locaux. 
             </p>
