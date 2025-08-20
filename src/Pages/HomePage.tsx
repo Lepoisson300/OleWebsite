@@ -32,7 +32,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
         {/* Text and buttons below logo */}
         <div className="max-w-4xl mt-[220px] mx-auto p-2 rounded-lg">
             <div className=' rounded-lg p-4'>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto text-stone-100 relative z-10 leading-relaxed">
+            <p className="text-2xl md:text-xl max-w-5xl mx-auto text-stone-300 relative z-10 leading-relaxed">
               Situé au bord du lac de Bienne, sur la plus belle plage de la région, 
               ce restaurant lounge propose une carte de mets inspirés des voyages du chef de cuisine, tout en utilisant des produits locaux. 
             </p>
