@@ -10,17 +10,16 @@ interface AccueilPageProps {
 const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraires }) => (
   <>
     {/* Hero Section */}
-    <section className="bg-gray-900 text-stone-100 md:py-24 flex items-center">
+    <section className="bg-gray-900 text-stone-100 py-16 md:py-24 relative min-h-[600px] flex items-center">
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
       <img
         src='https://i.imghippo.com/files/pe2725AOo.png'
-        className="absolute inset-0 w-full h-[90%] object-cover object-center z-0"
+        className="absolute inset-0 h-[90%] w-full object-cover object-center z-0"
         style={{ pointerEvents: 'none' }}
         alt=""
       />
-      <div className="absolute inset-0 bg-opacity-50"></div>
       <div className="container mx-auto px-4 text-center relative z-20 w-full flex flex-col items-center justify-center h-full">
         {/* Logo/Circle Design */}
         
@@ -31,7 +30,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
         
         
         {/* Text and buttons below logo */}
-        <div className="max-w-4xl mt-[200px] mx-auto p-2 rounded-lg">
+        <div className="max-w-4xl mt-[220px] mx-auto p-2 rounded-lg">
             <div className=' rounded-lg p-4'>
             <p className="text-lg md:text-xl max-w-3xl mx-auto text-stone-100 relative z-10 leading-relaxed">
               Situé au bord du lac de Bienne, sur la plus belle plage de la région, 
@@ -66,7 +65,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
               <img 
                 src="https://cdn.passeports.world/pictures/square/pictures/6363/802e5/6363802e55b08/pg23-60038-ole-1a-compressed.jpg?c=1667465262" 
                 alt="Authentic Spanish Cuisine" 
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover "
               />
               <div className="absolute inset-0  bg-opacity-40 transition-opacity duration-300 group-hover:bg-opacity-30"></div>
               <div className="absolute top-4 left-4">
@@ -84,7 +83,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
               <img 
                 src="https://le-de.cdn-website.com/63bbc12fb217440382108fff4b533128/dms3rep/multi/opt/OlRestaurantLounge-003+%281%29-432w.jpg" 
                 alt="Premium Spanish Wines" 
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover  "
               />
               <div className="absolute inset-0 bg-opacity-40 transition-opacity duration-300 group-hover:bg-opacity-30"></div>
               <div className="absolute top-4 left-4">
@@ -102,7 +101,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
               <img 
                 src="https://img.restaurantguru.com/r581-OLe-restaurant-design-2024-09.jpg" 
                 alt="Restaurant Atmosphere" 
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover "
               />
               <div className="absolute inset-0 bg-opacity-40 transition-opacity duration-300 group-hover:bg-opacity-30"></div>
               <div className="absolute top-4 left-4">
