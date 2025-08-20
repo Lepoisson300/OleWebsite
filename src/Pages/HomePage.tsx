@@ -10,13 +10,13 @@ interface AccueilPageProps {
 const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraires }) => (
   <>
     {/* Hero Section */}
-    <section className="bg-gray-900 text-stone-100 py-16 md:py-24 relative min-h-[600px] flex items-center">
+    <section className="bg-gray-900 text-stone-100 py-8 md:py-24 relative min-h-[500px] flex items-center">
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
       <img
         src='https://i.imghippo.com/files/pe2725AOo.png'
-        className="absolute inset-0 h-[90%] w-full object-cover object-center z-0"
+        className="absolute inset-0 h-full w-full object-cover object-center z-0"
         style={{ pointerEvents: 'none' }}
         alt=""
       />
@@ -24,7 +24,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
         {/* Logo/Circle Design */}
         
             {/* Main title inside circle */}
-            <h2 className="text-6xl md:text-7xl font-bold text-amber-50 relative z-10 font-['Dancing_Script'] text-center leading-tight">
+            <h2 className="mb-4 text-6xl md:text-5xl font-bold text-amber-50 font-['Dancing_Script'] text-center leading-tight absolute bottom-75">
               ¡Bienvenidos a O'lé!
             </h2>
         
@@ -32,28 +32,30 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
         {/* Text and buttons below logo */}
         <div className="max-w-4xl mt-[220px] mx-auto p-2 rounded-lg">
             <div className=' rounded-lg p-4'>
-            <p className="text-2xl md:text-xl max-w-5xl mx-auto text-stone-300 relative z-10 leading-relaxed">
+            <p className="text-xl md:text-3xl font-['Dancing_Script'] max-w-4xl mx-auto text-stone-300 text-center absolute top-60 right-[10%] left-[10%]">
               Situé au bord du lac de Bienne, sur la plus belle plage de la région, 
               ce restaurant lounge propose une carte de mets inspirés des voyages du chef de cuisine, tout en utilisant des produits locaux. 
             </p>
             </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={() => setCurrentPage('menus')}
-              className="bg-amber-800 text-stone-100 px-8 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
-              >
-              Voir le Menu
-            </button>
-            <button 
-              onClick={() => setCurrentPage('contact')}
-              className="border-2 border-stone-300 text-stone-100 px-8 py-3 rounded-lg font-semibold hover:bg-stone-100 hover:text-stone-800 transition-colors"
-              >
-              Réserver une Table
-            </button>
-          </div>
+          
         </div>
       </div>
     </section>
+
+    <div className="bg-gray-900 flex flex-col sm:flex-row justify-center p-4 min-h-[90px] gap-4 sm:gap-0">
+        <button 
+          onClick={() => setCurrentPage('menus')}
+          className="bg-amber-800 text-stone-100 sm:mx-2 px-8 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors w-full sm:w-auto"
+          >
+          Voir le Menu
+        </button>
+        <button 
+          onClick={() => setCurrentPage('contact')}
+          className="border-2 border-stone-300 text-stone-100 px-8 py-3 rounded-lg font-semibold hover:bg-stone-100 hover:text-stone-800 transition-colors w-full sm:w-auto"
+          >
+          Réserver une Table
+        </button>
+        </div>
 
     {/* Features */}
     <section className="py-16 bg-gray-950">
