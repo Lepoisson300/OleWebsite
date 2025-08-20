@@ -15,7 +15,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
       <img
-        src='https://i.imghippo.com/files/pe2725AOo.png'
+        src='https://i.imghippo.com/files/XYa1688Hs.png'
         className="absolute inset-0 h-full w-full object-cover object-center z-0"
         style={{ pointerEvents: 'none' }}
         alt=""
@@ -24,7 +24,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
         {/* Logo/Circle Design */}
         
             {/* Main title inside circle */}
-            <h2 className="mb-4 text-6xl md:text-5xl font-bold text-amber-50 font-['Dancing_Script'] text-center leading-tight absolute bottom-75">
+            <h2 className="mb-4 text-6xl md:text-5xl font-bold text-amber-50 font-['Dancing_Script'] text-center leading-tight absolute bottom-77">
               ¡Bienvenidos a O'lé!
             </h2>
         
@@ -32,7 +32,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
         {/* Text and buttons below logo */}
         <div className="max-w-4xl mt-[220px] mx-auto p-2 rounded-lg">
             <div className=' rounded-lg p-4'>
-            <p className="text-xl md:text-3xl font-['Dancing_Script'] max-w-4xl mx-auto text-stone-300 text-center absolute top-60 right-[10%] left-[10%]">
+            <p className="text-xl md:text-3xl font-['Dancing_Script'] max-w-4xl mx-auto text-stone-300 text-center absolute top-65 right-[10%] left-[10%] font-bold">
               Situé au bord du lac de Bienne, sur la plus belle plage de la région, 
               ce restaurant lounge propose une carte de mets inspirés des voyages du chef de cuisine, tout en utilisant des produits locaux. 
             </p>
