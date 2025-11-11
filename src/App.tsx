@@ -6,6 +6,7 @@ import AccueilPage from "./Pages/HomePage";
 import MenusPage from "./Pages/MenuPage";
 import './index.css'; // Assuming you have a global CSS file for styles
 import type { Horaire } from './types/horaires';
+import logo from '../public/logoOle.png';
 
 import { Clock, MapPin, Phone, Mail, Star } from 'lucide-react';
 import MenuJourPage from "./Pages/MenuJourPage";
@@ -86,7 +87,7 @@ const OleRestaurant = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               {/**Logo of the ole */}
-              <img className="rounded-full w-12 h-12" src="./public/logoOle.png" alt="Olé Restaurant" />
+              <img className="rounded-full w-12 h-12" src={logo} alt="Olé Restaurant" />
                 <h1 className="text-3xl font-bold text-amber-50 font-['Dancing_Script']">O'lé Restaurant Lounge</h1>
             </div>
             <div className="hidden md:flex items-center space-x-6 text-stone-200">
