@@ -10,20 +10,29 @@ interface AccueilPageProps {
 const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraires }) => (
   <>
     {/* Hero Section */}
-    <section className="bg-gray-900 text-stone-100 py-8 md:py-24 relative min-h-[300px] flex items-center">
+    <section className="py-8 md:py-24 relative min-h-[300px] flex items-center max-w-7xl mt-10 mb-10 rounded-lg overflow-hidden mx-auto">
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
       <img
-      src='https://i.imghippo.com/files/XYa1688Hs.png'
+      src='./src/assets/OlRestaurant.png'
       className="absolute inset-0 h-full w-full object-cover object-center z-0"
       style={{ pointerEvents: 'none' }}
       alt=""
       />
+      <img
+      src='./src/assets/olebanniere.png'
+      className='absolute top-3/7 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 max-w-[350px] w-full px-4' 
+      />
+      <style>{`@media (max-width: 640px) {
+        img[src*="olebanniere.png"] {
+          max-width: 270px !important;
+          width: auto !important;
+        }
+      }`}</style>
       <div className="container mx-auto px-4 text-center relative z-20 w-full flex flex-col items-center justify-center h-full min-h-[300px]">
-      
       {/* Welcome text above logo */}
-      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-green-800 font-['Dancing_Script'] text-center leading-tight mb-8">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-['Dancing_Script'] text-center leading-tight mb-7">
         ¡Bienvenidos a O'lé!
       </h2>
       
@@ -35,7 +44,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
       
       {/* French description text below logo */}
       <div className="max-w-5xl mx-auto mt-[220px]">
-        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-['Dancing_Script'] text-green-800 text-center font-bold leading-relaxed px-4">
+        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-['Dancing_Script'] text-white text-center font-bold leading-relaxed px-4">
         Situé au bord du lac de Bienne, sur la plus belle plage de la région, 
         ce restaurant lounge propose une carte de mets inspirés des voyages du chef de cuisine, tout en utilisant des produits locaux.
         </p>
@@ -43,7 +52,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
       </div>
     </section>
 
-    <div className="bg-gray-900 flex flex-row justify-center p-4 min-h-[90px] gap-4">
+    <div className="bg-stone-800 flex flex-row justify-center p-4 min-h-[90px] gap-4 max-w-7xl mx-auto mb-16 rounded-lg">
         <button 
           onClick={() => setCurrentPage('menus')}
           className="bg-amber-800 text-stone-100 sm:mx-2 px-8 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors w-full sm:w-auto"

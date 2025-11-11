@@ -76,7 +76,7 @@ const OleRestaurant = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-stone-900 text-stone-200 flex flex-col">
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
@@ -86,7 +86,7 @@ const OleRestaurant = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               {/**Logo of the ole */}
-              <img className="rounded-full w-12 h-12" src="https://fv5-4.files.fm/thumb_show.php?i=w724qnjdkd&view&v=1&PHPSESSID=1fcd68afce9ab761478abb071e98a0417dc1fc1c" alt="Olé Restaurant" />
+              <img className="rounded-full w-12 h-12" src="./public/logoOle.png" alt="Olé Restaurant" />
                 <h1 className="text-3xl font-bold text-amber-50 font-['Dancing_Script']">O'lé Restaurant Lounge</h1>
             </div>
             <div className="hidden md:flex items-center space-x-6 text-stone-200">
