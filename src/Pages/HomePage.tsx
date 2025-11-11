@@ -15,13 +15,13 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
       <img
-      src='./src/public/OlRestaurant.png'
+      src='/OlRestaurant.png'
       className="absolute inset-0 h-full w-full object-cover object-center z-0"
       style={{ pointerEvents: 'none' }}
       alt=""
       />
       <img
-      src='./src/public/olebanniere.png'
+      src='/olebanniere.png'
       className='absolute top-3/7 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 max-w-[350px] w-full px-4' 
       />
       <style>{`@media (max-width: 640px) {
