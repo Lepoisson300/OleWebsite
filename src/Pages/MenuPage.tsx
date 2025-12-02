@@ -179,29 +179,28 @@ const MenusPage = () => {
 
         {/* Menu Navigation */}
         <div className="flex flex-wrap justify-center mb-12 gap-2">
-            <div className="bg-stone-800 rounded-lg p-2 flex flex-wrap gap-1 shadow-lg w-full sm:w-auto justify-center">
-            {Object.keys(menuSections).map((section) => {
-              const sectionKey = section as MenuSection;
-              const itemCount = menuSections[sectionKey].length;
-              
-              return (
-                <button
-                  key={section}
-                  onClick={() => setCurrentMenu(sectionKey)}
-                  className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base relative ${
-                    currentMenu === section
-                      ? "bg-amber-600 text-white shadow-lg transform scale-105"
-                      : "text-stone-300 hover:text-amber-400 hover:bg-stone-700"
-                  }`}
-                >
-                  <span className="mr-2">{getSectionIcon(sectionKey)}</span>
-                  {getSectionTitle(sectionKey)}
-                  
-                </button>
-              );
-            })}
+          <div className="bg-stone-800 rounded-lg p-2 flex flex-wrap gap-1 shadow-lg w-full sm:w-auto justify-center">
+          {Object.keys(menuSections).map((section) => {
+            const sectionKey = section as MenuSection;
+            
+            return (
+              <button
+                key={section}
+                onClick={() => setCurrentMenu(sectionKey)}
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base relative **truncate max-w-full** ${ // <-- AJOUT DE TRUNCATE ET MAX-W-FULL ICI
+                  currentMenu === section
+                    ? "bg-amber-600 text-white shadow-lg transform scale-105"
+                    : "text-stone-300 hover:text-amber-400 hover:bg-stone-700"
+                }`}
+              >
+                <span>{getSectionIcon(sectionKey)}</span>
+                {getSectionTitle(sectionKey)}
+                
+              </button>
+            );
+          })}
           </div>
-        </div>
+      </div>
 
         {/* Current Section Header */}
         <div className="text-center mb-8">

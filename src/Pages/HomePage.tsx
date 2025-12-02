@@ -18,13 +18,13 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
       <img
       src={OlRestaurant}
-      className="absolute inset-0 h-full w-full object-cover object-center z-0"
+      className="absolute h-full w-full object-cover object-center z-0 rounded-2xl "
       style={{ pointerEvents: 'none' }}
       alt=""
       />
       <img
       src={olebanniere}
-      className='absolute top-3/7 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 max-w-[350px] w-full rounded-2xl px-4' 
+      className='absolute top-3/7 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 max-w-[340px] w-full rounded-2xl px-4' 
       />
       <style>{`@media (max-width: 640px) {
         img[src*="olebanniere.png"] {
@@ -153,7 +153,7 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
               <span className="text-stone-600 ml-2">4.5/5 de 500+ commentaires</span>
             </div>
           </div>
-            <div className="bg-gradient-to-br from-amber-800 to-amber-400 rounded-lg p-8 text-white">
+            <div className="bg-gradient-to-br from-amber-800 to-amber-600 rounded-lg p-8 text-white shadow-lg">
             <h3 className="text-2xl font-bold mb-4">Horaires</h3>
             <div className="space-y-2">
               {listesHoraires.map(({ jours, ouverture, fermeture }) => (

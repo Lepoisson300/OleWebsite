@@ -131,28 +131,28 @@ const MenusPage = () => {
             Nos Menus de la Semaine
           </h2>
           <p className="text-stone-400 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-            Découvrez notre sélection de Menu du jour, préparés avec des ingrédients frais et de qualité pour 21.50€
+            Découvrez notre sélection de Menu du jour, préparés avec des ingrédients frais et de qualité pour 21.50 .-
           </p>
         </div>
 
         {/* Day Navigation */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-stone-800 rounded-lg p-2 flex flex-wrap sm:flex-nowrap gap-2 sm:space-x-2 sm:gap-0 shadow-lg max-w-full">
-            {weekDays.map((day) => (
-              <button
-          key={day}
-          onClick={() => setCurrentDay(day)}
-          className={`px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base flex-1 sm:flex-none min-w-0 ${
-            currentDay === day
-              ? 'bg-amber-600 text-white shadow-lg transform scale-105'
-              : 'text-stone-300 hover:text-amber-400 hover:bg-stone-700'
-          }`}
-              >
-          {getDayTitle(day)}
-              </button>
-            ))}
-          </div>
-        </div>
+<div className="flex mb-12">
+  <div className="bg-stone-800 rounded-lg p-2 flex w-full sm:flex-nowrap shadow-lg max-w-full">
+    {weekDays.map((day) => (
+      <button
+        key={day}
+        onClick={() => setCurrentDay(day)}
+        className={`px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all mx-0.5 duration-300 text-sm sm:text-base min-w-0 text-center ${ // <-- AJOUT DE TEXT-CENTER
+          currentDay === day
+            ? 'bg-amber-600 text-white shadow-lg transform scale-105'
+            : 'text-stone-300 hover:text-amber-400 hover:bg-stone-700'
+        }`}
+      >
+        {getDayTitle(day)}
+      </button>
+    ))}
+  </div>
+</div>
 
         {/* Current Day Header */}
         <div className="text-center mb-8">
