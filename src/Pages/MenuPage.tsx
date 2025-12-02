@@ -187,13 +187,13 @@ const MenusPage = () => {
               <button
                 key={section}
                 onClick={() => setCurrentMenu(sectionKey)}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base relative **truncate max-w-full** ${ // <-- AJOUT DE TRUNCATE ET MAX-W-FULL ICI
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base relative truncate max-w-full ${ // <-- AJOUT DE TRUNCATE ET MAX-W-FULL ICI
                   currentMenu === section
                     ? "bg-amber-600 text-white shadow-lg transform scale-105"
                     : "text-stone-300 hover:text-amber-400 hover:bg-stone-700"
                 }`}
               >
-                <span>{getSectionIcon(sectionKey)}</span>
+                <span className="">{getSectionIcon(sectionKey)}</span>
                 {getSectionTitle(sectionKey)}
                 
               </button>

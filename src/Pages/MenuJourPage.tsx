@@ -136,13 +136,14 @@ const MenusPage = () => {
         </div>
 
         {/* Day Navigation */}
-<div className="flex mb-12">
-  <div className="bg-stone-800 rounded-lg p-2 flex w-full sm:flex-nowrap shadow-lg max-w-full">
+{/* Day Navigation */}
+<div className="flex justify-center mb-12"> {/* <-- 1. AJOUT DE justify-center */}
+  <div className="bg-stone-800 rounded-lg p-2 flex w-full sm:flex-nowrap shadow-lg max-w-6xl"> {/* <-- 2. AJOUT DE w-full et max-w-6xl */}
     {weekDays.map((day) => (
       <button
         key={day}
         onClick={() => setCurrentDay(day)}
-        className={`px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all mx-0.5 duration-300 text-sm sm:text-base min-w-0 text-center ${ // <-- AJOUT DE TEXT-CENTER
+        className={`px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base min-w-0 text-center flex-1 ${ // <-- 3. AJOUT DE flex-1 (et j'ai supprimé mx-0.5)
           currentDay === day
             ? 'bg-amber-600 text-white shadow-lg transform scale-105'
             : 'text-stone-300 hover:text-amber-400 hover:bg-stone-700'
