@@ -49,7 +49,6 @@ const ContactPage = ({ listesHoraires }: ContactPageProps) => (
                   <div className="text-stone-300 space-y-1">
                   {listesHoraires && listesHoraires.length > 0 ? (
                     listesHoraires.map((horaire, idx) => (
-                      console.log("Horaire:", horaire),
                     <p key={idx}>
                       {horaire.jours}: {horaire.ouverture} - {horaire.fermeture}
                     </p>

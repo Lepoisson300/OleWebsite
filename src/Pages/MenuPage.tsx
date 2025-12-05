@@ -55,7 +55,6 @@ const MenusPage = () => {
         setLoading(true);
         setError(null);
 
-        console.log('Fetching from:', `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`);
         
         const response = await fetch(
           `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`
@@ -66,7 +65,6 @@ const MenusPage = () => {
         }
 
         const data = await response.json();
-        console.log('Received data:', data);
 
         if (data.error) {
           throw new Error(data.error.message || 'Google Sheets API error');
@@ -87,7 +85,6 @@ const MenusPage = () => {
               ['tapas', 'entree', 'plat', 'dessert', 'enfant', 'boisson'].includes(item.section) && item.name
             );
 
-          console.log('Processed items:', items);
 
           // Group by section
           const grouped: Record<MenuSection, MenuItem[]> = {
@@ -109,7 +106,6 @@ const MenusPage = () => {
             }
           });
 
-          console.log('Grouped sections:', grouped);
           setMenuSections(grouped);
         } else {
           console.warn('No data found or insufficient data');
