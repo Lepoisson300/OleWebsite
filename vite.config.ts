@@ -5,6 +5,6 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/OleWebsite/', // ⚠️ Mets le nom exact du repo
+  base: '/', // ⚠️ Mets le nom exact du repo
 
 })
