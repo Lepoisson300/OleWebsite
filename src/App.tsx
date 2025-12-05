@@ -6,6 +6,7 @@ import AccueilPage from "./Pages/HomePage";
 import MenusPage from "./Pages/MenuPage";
 import './index.css'; // Assuming you have a global CSS file for styles
 import type { Horaire } from './types/horaires';
+import logo from '../public/logoOle.png';
 
 import { Clock, MapPin, Phone, Mail, Star } from 'lucide-react';
 import MenuJourPage from "./Pages/MenuJourPage";
@@ -76,7 +77,7 @@ const OleRestaurant = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-stone-900 text-stone-200 flex flex-col">
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
@@ -85,8 +86,9 @@ const OleRestaurant = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              {/**Logo of the ole */}
-              <img className="rounded-full w-12 h-12" src="https://fv5-4.files.fm/thumb_show.php?i=w724qnjdkd&view&v=1&PHPSESSID=1fcd68afce9ab761478abb071e98a0417dc1fc1c" alt="Olé Restaurant" />
+              <button type="button" onClick={() => setCurrentPage('accueil')} aria-label="Accueil" title="Accueil">
+                <img className="rounded-full w-12 h-12 cursor-pointer" src={logo} alt="Olé Restaurant" />
+              </button>
                 <h1 className="text-3xl font-bold text-amber-50 font-['Dancing_Script']">O'lé Restaurant Lounge</h1>
             </div>
             <div className="hidden md:flex items-center space-x-6 text-stone-200">
@@ -196,6 +198,35 @@ const OleRestaurant = () => {
                 <div className="flex items-center space-x-3">
                   <Phone className="h-4 w-4 text-amber-800" />
                 <span className="text-sm">+41 32 751 66 55</span>
+                </div>
+                <div>
+                  <div className="flex items-center space-x-3">
+                    <a
+                      href="https://www.instagram.com/olerestaurantlounge"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Olé Restaurant on Instagram"
+                      title="Instagram"
+                      className="flex items-center space-x-2 hover:text-amber-600"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 text-amber-800"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                      </svg>
+                      <span className="text-sm">@olerestaurantlounge</span>
+                    </a>
+                  </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-4 w-4 text-amber-800" />
