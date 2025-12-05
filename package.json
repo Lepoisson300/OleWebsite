@@ -2,7 +2,7 @@
   "name": "ole-restaurant-site",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://lepoisson300.github.io/OleWebsite/",
+  "homepage": "https://restaurantole.com",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
