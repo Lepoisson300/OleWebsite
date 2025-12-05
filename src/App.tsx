@@ -23,17 +23,14 @@ const OleRestaurant = () => {
   const RANGE_HORAIRES = import.meta.env.VITE_RANGE_HORAIRES as string;
 
   useEffect(() => {
-    console.log("Fetching data from:", `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE_HORAIRES}?key=${API_KEY}`);
 
     fetch(
       `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE_HORAIRES}?key=${API_KEY}`
     )
       .then((res) => {
-        console.log("Response status:", res.status);
         return res.json();
       })
       .then((data) => {
-        console.log("Raw API data:", data);
         if (data.values && data.values.length > 1) {
           // Skip the header row (index 0) and map the rest
           const horaires: Horaire[] = data.values.slice(1).map((row: string[]) => ({
@@ -41,11 +38,9 @@ const OleRestaurant = () => {
             ouverture: row[1] || '',
             fermeture: row[2] || '',
           }));
-          console.log("Mapped horaires:", horaires);
           setListesHoraires(horaires);
         } else {
-          console.log("No data found or insufficient rows");
-          console.log("Data values:", data.values);
+          console("Data values:", data.values);
         }
       })
       .catch((error) => {
@@ -54,7 +49,6 @@ const OleRestaurant = () => {
   }, [SHEET_ID, API_KEY, RANGE_HORAIRES]);
 
   useEffect(() => {
-    console.log("listesHoraires updated:", listesHoraires);
   }, [listesHoraires]);
 
   const renderPage = () => {
