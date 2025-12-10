@@ -222,10 +222,14 @@ const OleRestaurant = () => {
                     </a>
                   </div>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="h-4 w-4 text-amber-800" />
-                  <span className="text-sm">contact@olerestaurant.fr</span>
+                <div className="p-4 mb-4 text-sm text-amber-800 rounded-2xl bg-amber-100" role="alert">
+                  <span className="font-medium">Attention !</span>Nous rencontrons des soucis d'adresses e-mail veuillez utiliser l'autre adresse e-mail.
                 </div>
+                <div className="flex items-center space-x-3">
+                  
+                  <Mail className="h-4 w-4 text-amber-800" />
+                  <a href="mailto:jeanpysniak@hotmail.co.uk" className="font-semibold hover:no-underline">jeanpysniak@hotmail.co.uk</a>
+                  </div>
               </div>
             </div>
 
