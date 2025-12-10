@@ -1,5 +1,6 @@
 import { Calendar } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import Alerts from '../components/Alerts';
 
 type NewsItem = {
   name: string;
@@ -44,7 +45,7 @@ const ActualitesPage = () => {
             Restez informé de toutes les nouveautés d'Olé Restaurant : nouveaux plats, événements spéciaux, et actualités
           </p>
         </div>
-
+        <Alerts></Alerts>
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {newsItems.map((item, index) => (
             <article

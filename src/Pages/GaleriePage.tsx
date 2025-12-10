@@ -1,5 +1,6 @@
 import { Image as ImageIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import Alerts from '../components/Alerts';
 
 type PhotoItem = {
   name: string;
@@ -47,7 +48,7 @@ const GaleriePage = () => {
             Découvrez l'ambiance chaleureuse de notre restaurant et la beauté de notre cuisine authentique
           </p>
         </div>
-
+        <Alerts></Alerts>
         {/* Masonry Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
           {currentImages.map((image, index) => {

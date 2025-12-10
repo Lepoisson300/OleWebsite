@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Alerts from "../components/Alerts";
 
 type MenuSection = 'tapas' | 'entree' | 'plat' | 'dessert' | 'enfant' | 'boisson';
 
@@ -172,7 +173,7 @@ const MenusPage = () => {
             Découvrez notre sélection de plats authentiques espagnols, préparés avec des ingrédients frais et de qualité
           </p>
         </div>
-
+        <Alerts></Alerts>
         {/* Menu Navigation */}
         <div className="flex flex-wrap justify-center mb-12 gap-2">
           <div className="bg-stone-800 rounded-lg p-2 flex flex-wrap gap-1 shadow-lg w-full sm:w-auto justify-center">

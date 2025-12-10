@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Alerts from "../components/Alerts";
 
 type MenuSection = 'entree' | 'plat' | 'dessert';
 type WeekDay = 'lundi' | 'mardi' | 'mercredi' | 'jeudi' | 'vendredi';
@@ -134,7 +135,7 @@ const MenusPage = () => {
             Découvrez notre sélection de Menu du jour, préparés avec des ingrédients frais et de qualité pour 21.50 .-
           </p>
         </div>
-
+        <Alerts></Alerts>
         {/* Day Navigation */}
 {/* Day Navigation */}
 <div className="flex justify-center mb-12"> {/* <-- 1. AJOUT DE justify-center */}

@@ -2,6 +2,7 @@ import React from 'react';
 import {Star, Utensils, Wine, Users} from 'lucide-react';
 import OlRestaurant from '../assets/OlRestaurant.png';
 import olebanniere from '../assets/olebanniere.png';
+import Alerts from '../components/Alerts';
 
 // Accueil Page Component
 interface AccueilPageProps {
@@ -12,16 +13,20 @@ interface AccueilPageProps {
 const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraires }) => (
   <>
     {/* Hero Section */}
+          <Alerts></Alerts>
+
     <section className="py-8 md:py-24 relative min-h-[300px] flex items-center max-w-7xl mt-10 mb-10 rounded-lg overflow-hidden mx-auto">
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"/>
+      
       <img
       src={OlRestaurant}
       className="absolute h-full w-full object-cover object-center z-0 rounded-2xl "
       style={{ pointerEvents: 'none' }}
       alt=""
       />
+      
       <img
       src={olebanniere}
       className='absolute top-3/7 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 max-w-[340px] w-full rounded-2xl px-4' 
@@ -37,7 +42,6 @@ const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraire
       <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-['Dancing_Script'] text-center leading-tight mb-7">
         ¡Bienvenidos a O'lé!
       </h2>
-      
       {/* Logo would go here - you can add your logo image */}
       <div className="mb-8">
         {/* Add your logo here if you have one */}
