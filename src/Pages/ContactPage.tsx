@@ -1,14 +1,11 @@
 import { Clock, MapPin, Phone, Mail} from 'lucide-react';
 import type { Horaire } from '../types/horaires';
-import { useState } from 'react';
-import Alerts from '../components/Alerts';
 interface ContactPageProps {
   listesHoraires: Horaire[];
 }
 
 // Contact Page Component
 const ContactPage = ({ listesHoraires }: ContactPageProps) => {
-  const [showAlert, setShowAlert] =  useState(true);
   
   return(
   <section className="py-16 bg-neutral-900 min-h-screen">
@@ -19,7 +16,6 @@ const ContactPage = ({ listesHoraires }: ContactPageProps) => {
           Contactez-nous pour réserver une table ou pour toute information sur notre restaurant
         </p>
       </div>
-      <Alerts></Alerts>
       <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
         {/* Contact Information */}
         <div className="space-y-8">
@@ -44,7 +40,7 @@ const ContactPage = ({ listesHoraires }: ContactPageProps) => {
                 <Mail className="h-6 w-6 text-amber-500 mt-1" />
                 <div>
                   <h4 className="font-semibold text-stone-100">Email</h4>
-                  <a href="mailto:jeanpysniak@hotmail.co.uk" className="font-semibold text-stone-300 hover:no-underline">jeanpysniak@hotmail.co.uk</a>
+                  <a href="mailto:info@restaurantole.com" className="font-semibold text-stone-300 hover:no-underline">info@restaurantole.com</a>
                 </div>                
               </div>
                 <div className="flex items-start space-x-4">

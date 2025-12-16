@@ -13,7 +13,6 @@ interface AccueilPageProps {
 const AccueilPage: React.FC<AccueilPageProps> = ({ setCurrentPage, listesHoraires }) => (
   <>
     {/* Hero Section */}
-          <Alerts></Alerts>
 
     <section className="py-8 md:py-24 relative min-h-[300px] flex items-center max-w-7xl mt-10 mb-10 rounded-lg overflow-hidden mx-auto">
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
