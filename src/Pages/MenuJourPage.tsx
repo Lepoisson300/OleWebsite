@@ -135,8 +135,6 @@ const MenusPage = () => {
             Découvrez notre sélection de Menu du jour, préparés avec des ingrédients frais et de qualité pour 21.50 .-
           </p>
         </div>
-        <Alerts></Alerts>
-        {/* Day Navigation */}
 {/* Day Navigation */}
 <div className="flex justify-center mb-12"> {/* <-- 1. AJOUT DE justify-center */}
   <div className="bg-stone-800 rounded-lg p-2 flex w-full sm:flex-nowrap shadow-lg max-w-6xl"> {/* <-- 2. AJOUT DE w-full et max-w-6xl */}
