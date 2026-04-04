@@ -39,6 +39,7 @@ const OleRestaurant = () => {
             fermeture: row[2] || '',
           }));
           setListesHoraires(horaires);
+          console.log(horaires)
         }
       })
       .catch((error) => {
