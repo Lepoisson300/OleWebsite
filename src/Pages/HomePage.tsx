@@ -1,7 +1,7 @@
 import React from 'react';
 import {Star, Utensils, Wine, Users} from 'lucide-react';
-import OlRestaurant from '../assets/OlRestaurant.png';
-import olebanniere from '../assets/olebanniere.png';
+import OlRestaurant from '/OlRestaurant.png';
+import olebanniere from '/olebanniere.png';
 import Alerts from '../components/Alerts';
 
 // Accueil Page Component

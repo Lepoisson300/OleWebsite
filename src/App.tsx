@@ -6,7 +6,7 @@ import AccueilPage from "./Pages/HomePage";
 import MenusPage from "./Pages/MenuPage";
 import './index.css'; // Assuming you have a global CSS file for styles
 import type { Horaire } from './types/horaires';
-import logo from '../public/logoOle.png';
+import logo from '/logoOle.png';
 
 import { Clock, MapPin, Phone, Mail, Star } from 'lucide-react';
 import MenuJourPage from "./Pages/MenuJourPage";
@@ -39,7 +39,6 @@ const OleRestaurant = () => {
             fermeture: row[2] || '',
           }));
           setListesHoraires(horaires);
-          console.log(horaires)
         }
       })
       .catch((error) => {
