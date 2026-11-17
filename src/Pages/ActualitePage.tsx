@@ -42,7 +42,7 @@ const ActualitesPage = () => {
       {/* Découpe diagonale en bas sur mobile, et à gauche/droite sur ordinateur */}
       <style>{`
         .clip-diagonal-left {
-          clip-path: polygon(0 55%, 100% 45%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 30%, 100% 25%, 100% 100%, 0% 100%);
         }
         .clip-diagonal-right {
           clip-path: polygon(0 45%, 100% 55%, 100% 100%, 0% 100%);
@@ -52,7 +52,8 @@ const ActualitesPage = () => {
             clip-path: polygon(0 0, 52% 0, 30% 100%, 0% 100%);
           }
           .clip-diagonal-right {
-            clip-path: polygon(25% 0, 100% 0, 100% 100%, 40% 100%);
+            /* Repoussé vers la droite : démarre à 45% en haut et 60% en bas */
+            clip-path: polygon(45% 0, 100% 0, 100% 100%, 60% 100%);
           }
         }
       `}</style>
@@ -86,7 +87,7 @@ const ActualitesPage = () => {
 
                 {/* 2. Panneau noir diagonal (en bas sur mobile, alterné gauche/droite sur desktop) */}
                 <div
-                  className={`absolute inset-0 bg-neutral-950/95 pointer-events-none transition-all duration-500 ${isReversed ? 'clip-diagonal-right' : 'clip-diagonal-left'
+                  className={`absolute inset-0 bg-neutral-950/75 pointer-events-none transition-all duration-500 ${isReversed ? 'clip-diagonal-right' : 'clip-diagonal-left'
                     }`}
                 />
 

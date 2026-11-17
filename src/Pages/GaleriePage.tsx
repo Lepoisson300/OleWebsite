@@ -13,7 +13,7 @@ const GaleriePage = () => {
 
   const [galleryImages, setGalleryImages] = useState<PhotoItem[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9;
+  const itemsPerPage = 29;
 
   useEffect(() => {
     fetch(
@@ -32,7 +32,7 @@ const GaleriePage = () => {
       .catch(console.error);
   }, []);
 
-   const totalPages = Math.ceil(galleryImages.length / itemsPerPage);
+  const totalPages = Math.ceil(galleryImages.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentImages = galleryImages.slice(startIndex, startIndex + itemsPerPage);
 
@@ -52,13 +52,12 @@ const GaleriePage = () => {
             // Create varied heights for masonry effect
             const heights = ['h-64', 'h-80', 'h-72', 'h-96', 'h-64', 'h-80', 'h-72', 'h-96', 'h-80'];
             const heightClass = heights[index % heights.length];
-            
+
             return (
               <div
                 key={index}
-                className={`group relative overflow-hidden rounded-2xl shadow-lg ${heightClass} ${
-                  index === 1 ? 'md:row-span-2 md:h-auto' : ''
-                }`}
+                className={`group relative overflow-hidden rounded-2xl shadow-lg ${heightClass} ${index === 1 ? 'md:row-span-2 md:h-auto' : ''
+                  }`}
               >
                 <img
                   src={image.url}
