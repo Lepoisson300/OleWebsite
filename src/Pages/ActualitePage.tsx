@@ -22,13 +22,15 @@ const ActualitesPage = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.values) {
-          // Skip header row
-          const items = data.values.slice(1).map((row: string[]) => ({
-            name: row[0]?.trim(),
-            url: row[1]?.trim(),
-            description: row[2]?.trim(),
-            date: row[3]?.trim(),
-          }));
+          const items = data.values
+            .slice(1)
+            .map((row: string[]) => ({
+              name: row[0]?.trim(),
+              url: row[1]?.trim(),
+              description: row[2]?.trim(),
+              date: row[3]?.trim(),
+            }))
+            .filter((item: NewsItem) => item.name);
           setNewsItems(items);
         }
       })
@@ -37,36 +39,97 @@ const ActualitesPage = () => {
 
   return (
     <section className="py-16 bg-neutral-900 min-h-screen">
+      {/* Découpe diagonale en bas sur mobile, et à gauche/droite sur ordinateur */}
+      <style>{`
+        .clip-diagonal-left {
+          clip-path: polygon(0 55%, 100% 45%, 100% 100%, 0% 100%);
+        }
+        .clip-diagonal-right {
+          clip-path: polygon(0 45%, 100% 55%, 100% 100%, 0% 100%);
+        }
+        @media (min-width: 768px) {
+          .clip-diagonal-left {
+            clip-path: polygon(0 0, 52% 0, 30% 100%, 0% 100%);
+          }
+          .clip-diagonal-right {
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 40% 100%);
+          }
+        }
+      `}</style>
+
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 text-amber-500">Actualités</h2>
-          <p className="text-stone-600 max-w-2xl mx-auto">
-            Restez informé de toutes les nouveautés d'Olé Restaurant : nouveaux plats, événements spéciaux, et actualités
+          <p className="text-stone-400 max-w-2xl mx-auto">
+            Restez informé de toutes les nouveautés d&apos;Olé Restaurant : nouveaux plats, événements spéciaux, et actualités
           </p>
         </div>
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {newsItems.map((item, index) => (
-            <article
-              key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-            >
-              <div className="relative h-48 overflow-hidden">
+
+        <div className="flex flex-col gap-8 max-w-5xl mx-auto">
+          {newsItems.map((item, index) => {
+            const isReversed = index % 2 === 1;
+
+            return (
+              <article
+                key={index}
+                className="relative min-h-[410px] md:min-h-[300px] rounded-xl overflow-hidden shadow-2xl border border-stone-800/80 group flex flex-col justify-end md:flex-row md:items-center bg-neutral-950"
+              >
+                {/* 1. Image de fond bien visible en haut sur mobile et sur le côté sur desktop */}
                 <img
                   src={item.url}
                   alt={item.name}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover object-top md:object-center transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute top-4 right-4 bg-amber-800 text-white px-3 py-1 rounded-lg text-sm">
-                  <Calendar className="inline h-4 w-4 mr-1" />
-                  {item.date}
+
+                {/* Léger voile uniquement sur le haut pour faire ressortir les pilules */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-transparent pointer-events-none" />
+
+                {/* 2. Panneau noir diagonal (en bas sur mobile, alterné gauche/droite sur desktop) */}
+                <div
+                  className={`absolute inset-0 bg-neutral-950/95 pointer-events-none transition-all duration-500 ${isReversed ? 'clip-diagonal-right' : 'clip-diagonal-left'
+                    }`}
+                />
+
+                {/* 3. Pilules superposées sur la partie photo */}
+                <div
+                  className={`absolute top-4 sm:top-5 z-20 flex flex-col gap-2 ${isReversed
+                    ? 'left-4 sm:left-5 items-start'
+                    : 'right-4 sm:right-5 items-end'
+                    }`}
+                >
+                  {item.date && (
+                    <span className="inline-flex items-center gap-1.5 bg-neutral-950/90 backdrop-blur-sm text-white px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium shadow-lg border border-white/10">
+                      <Calendar className="h-3.5 w-3.5 text-amber-400" />
+                      {item.date}
+                    </span>
+                  )}
+                  <span className="inline-block bg-white text-neutral-950 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-lg tracking-wide">
+                    O&apos;lé Restaurant
+                  </span>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-stone-800">{item.name}</h3>
-                <p className="text-stone-600 leading-relaxed">{item.description}</p>
-              </div>
-            </article>
-          ))}
+
+                {/* 4. Contenu texte positionné dans la zone sombre */}
+                <div
+                  className={`relative z-10 w-full md:w-[54%] px-6 pb-6 pt-40 md:p-8 flex flex-col justify-center ${isReversed
+                    ? 'md:ml-auto md:items-end md:text-right'
+                    : 'md:mr-auto md:items-start md:text-left'
+                    }`}
+                >
+
+
+                  {/* Titre principal */}
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight mb-2">
+                    {item.name}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm sm:text-base text-stone-300 leading-relaxed max-w-md">
+                    {item.description}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
